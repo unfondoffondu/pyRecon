@@ -1,0 +1,43 @@
+-----------------------------------------------------------pyRecon----------------------------------------------------------------
+
+Author: Jeff S
+github: unfondoffondu
+contact: jaschowe@gmail.com
+
+------------------------------------------------------------About-----------------------------------------------------------------
+
+Since I began learning python, I have had a hard time on finding real world uses for my skills because at the time so spent my time
+running through practice problems I would find on the internet or just playing around with various packages and a lot of Turtle.
+Once I became interested in pentesting, after completing several capture the flags on my home lab, I finally found something I 
+could apply my programming skills to and see real accomplishments.  Familiarizing myself with the pentesting tools included with
+Kali linux and Blackarch, I figured there were a few of those that shouldn't be too hard to accomplish since requests and beautiful 
+soup were amongst the first python packages I ever used, even though at the time they were above my head.  I challenged myself to use
+only google and no walkthroughs to develop this project.
+
+Included in this first commit is a subnet scanner to find hosts on a given range of IPs, a port scanner to identify open ports
+and a good guess as what to services being run on a given port, a directory brute forcer.
+
+pyRecon is the main file program, though the others can function on their own.  pyRecon is aimed to be a pentesting framework that
+is built ontop of bash to offer easy management of data collected during the enumeration process.  It has the ability to run bash
+commands by simply adding a - in front of the command you wish to run.    
+
+This project is built to be easily added on to and modified.  pyRecon.py should handle everything as far as UI goes.
+
+To contribute:
+
+Preferably the function would be able to run on it's own, but that's not written in stone.  Only here in utf8 so its all good. 
+
+Write a function in a separate file (it can be added to pyRecon.py if it is short)
+import it into pyRecon
+add an entry into help with your command to call the function 
+add an if statement in the engine() function to handle the command
+add a function at the beginning of the file to handle input with pyre() call your imported function
+append any relevant data to the knowledge base
+return to engine function!
+ 
+I am very excited about this project and hope to find folks who want to contribute to it.  Any feedback would be greatly appreciated,
+any contributions would really make my day.
+
+ Thanks for having a look!
+ 
+

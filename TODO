@@ -1,0 +1,16 @@
+I would like to add every functionality possible, but you know how it goes.  
+
+priority 1 build a system to handle the 'knowledge base'.
+
+priority 2 is to import and export the knowledge base to be able to save information for future use.
+
+priority 3 add config file and be able to modify the colors etc (i know I went overboard!)
+
+priority 4 make a system to add functionality to the bash side like being able to push/pop directories so you can save them and
+	   move quickly between any number of directories by pushing d1 or d2 etc.  you can name them whatever you want.
+
+others:
+html parser to parse html :)
+tab completion (tall order)
+up/down arrow for scrolling through command history (tall order)
+basically any pentest tools ie 
