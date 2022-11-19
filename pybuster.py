@@ -1,5 +1,4 @@
-#                   to implement a failsafe measure, but it needs further testing on different targets.  Once again, big thanks to my boy David Bombal and big shoutout to
-#                   network Chuck for the inspiration.
+
 #
 #   Author:         Jeff Schowe
 #
