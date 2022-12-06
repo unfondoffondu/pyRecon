@@ -44,7 +44,7 @@ def pyre():
         pyre()
     return inpt
 def helps(): # add help entry here
-    print(col(f"\n?: display commands\nclr: clear screen\nx: exit\nv: view knowledge base\nr: reset knowledge base\n1: scan local network\n2: scan ports\n3: directory bruteforce\nTo run a shell command just add - to thebegging like -ls -la\n"))
+    print(col(f"\n?: display commands\nclr: clear screen\nx: exit\nv: view knowledge base\nr: reset knowledge base\n1: scan local network\n2: scan ports\n3: directory bruteforce\nTo run a shell command just add - to the beggnning like -ls -la\n"))
     engine(returns)
 def view(returns):
     if len(returns) > 0:
