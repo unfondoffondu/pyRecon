@@ -16,7 +16,7 @@ def scan(ip):
     print(f"Scanning range {ip}1/24")
     hosts = []
     ip_address = ip
-    for i in range(30):
+    for i in range(255):
 
         ip_address = ip + str(i)
         ip_response = sp.getoutput(f"fping -t100 -c 1 {ip_address} &").split()

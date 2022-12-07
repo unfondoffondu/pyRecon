@@ -29,7 +29,7 @@ def bash(cmd):
     os.system(cmd)
     engine(returns)
 def col(letters):
-    colors = ["30","31","32","33","34","35", "36"]
+    colors = ["31","32","33","34","35", "36"]
     prompt = f"\033[1;{choice(colors)};40m"
     for i in letters:
         color = choice(colors)
@@ -40,7 +40,7 @@ def pyre():
     w = time.sleep(.01)
     prompt = col("<pyRe> ")
     inpt = input(f"{prompt}\033[0;0m")
-    if "^" in inpt:
+    if inpt == "":
         pyre()
     return inpt
 def helps(): # add help entry here
@@ -53,7 +53,7 @@ def view(returns):
         print(col("!pyre! no knowledge base yet."))
         engine(returns)
 def clear():
-    print(col("pyre: deleting the knowledge base will delete the knoledge base, are you sure? y/n"))
+    print(col("pyre: deleting the knowledge base will delete the knowledge base, are you sure? y/n"))
     sure = pyre()
     if sure == "y":
         returns = []
@@ -70,22 +70,16 @@ def do_pydiscover():
     returns.append(("pydiscover", scan))
     engine(returns)
 def do_pymap():
+    print(col(f"1: read from hosts 2: enter host 3: return to menu"))
+    inpt = pyre()
+    if inpt == "1" and len(returns) > 0:
+        for i in returns:
+            if "pydiscover" in i:
+                print(col(i[1:]))
 
-    if len(returns) > 0:
-        print(col(f"1: read from hosts 2: enter host 3: return to menu"))
-        inpt = pyre()
-        if inpt == "1":
-            for i in returns:
-                if "pydiscover" in i:
-                    hosts = i[1]
-                else:
-                    print(col("pyro: have you scanned your network?  returning to main menu..."))
-                    engine(returns)
-                print(col(f"pick a target: \n {hosts}"))
-                target = pyre()
-                map = pymap.scan(target)
-                returns.append(("network_map", map))
-                engine(returns)
+    if input == 1 and len(returns) == 0:
+        print(col("nothing in the database yet"))
+        do_pymap()
     if inpt == "2":
         print(col("enter host"))
         host = pyre()
@@ -120,7 +114,7 @@ def engine(returns):
         bash(inpt.lstrip("-"))
     if inpt == "x":
         exit_nice()
-    if inpt == "rm":
+    if inpt == "r":
         clear()
     if inpt == "v":
         view(returns)

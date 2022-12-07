@@ -15,8 +15,7 @@ import socket
 import time
 from clr import clr
 def scan(target):
-    clr()
-
+    #clr()
     targetIP = socket.gethostbyname(target)
 
     port_low_range = int(input("enter lower limit of port range: "))
@@ -30,15 +29,17 @@ def scan(target):
     start = time.time()
 
     for port in range(port_low_range, port_high_range + 1):
+        openPort = False
         service = ""
         formatter = len(str(port))
-        if port != port_high_range-1:
+        if port != port_high_range + 1:
             print(f"{port}", end="")
         sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         result = sock.connect_ex((targetIP, port))
         print(end="\r")
         if result == 0:
             try:
+                openPort = True
                 service = socket.getservbyport(port, "tcp")
             except OSError:
                 service = "unknown"
@@ -46,10 +47,28 @@ def scan(target):
             total_open += 1
             print(f"\r{port}", " " * (10 - formatter) + "open", " " * 5, f"{service}")
         sock.close()
-
+    if not openPort:
+        print("Done!", end="\r")
     print("\n")
     stop = time.time() - start
-    print(f"{total_open} open ports in {round(stop)} earth time units.")
+    print(f"{total_open} open ports found in {round(stop)} earth time units.")
     print("\n", "-" * 60)
 
     return open_ports
+
+def main():
+    targ = input("Enter Target Host: ")
+    _targ = targ
+    try:
+        scan(targ)
+    except socket.gaierror:
+        print("Host seems to be invalid")
+        main()
+
+    except ValueError:
+        print("Port number seems to be invalid?  Should be an integer between 1 and 65535.")
+        scan(_targ)
+
+
+if __name__ == "__main__":
+    main()
